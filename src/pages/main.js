@@ -5,7 +5,7 @@ import RankCard from "../components/rankCard"
 import AnserCard from "../components/answerCard"
 
 function Main(){
-    const initialCorrectPair = 16;
+    const initialCorrectPair = 0;
     const oriWords = ["打","手","吃","口","英","艸",
     "國","囗","他","人","江","水","板","木","快","心",
     "好","女","煮","火","天","大","早","日","會","曰",
