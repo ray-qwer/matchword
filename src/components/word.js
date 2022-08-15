@@ -17,7 +17,7 @@ function Word(props){
     return (
         <Div w={props.w} h={props.h} border="8px solid" hoverBg={correct?"white":"lightgray"} 
         cursor={correct?"default":"pointer"}
-        borderColor={correct?"white":(selected)?"green":"brown"} rounded="xl" textSize="8vh"
+        borderColor={correct?"white":(selected)?"green":"#e8b78e"} rounded="xl" textSize="8vh"
         d="flex" align="center" justify="center"
         onClick={()=>{props.onClick(); clickWord();}}>
             <Text textColor={correct?"white":"black"}

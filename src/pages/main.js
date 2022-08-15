@@ -2,13 +2,16 @@ import react, {useState ,useEffect} from "react"
 import {Div, Text,} from "atomize"
 import Word from "../components/word"
 import RankCard from "../components/rankCard"
+import AnserCard from "../components/answerCard"
 
 function Main(){
-    const initialCorrectPair = 0;
-    const [words, setWords] = useState(["打","手","吃","口","英","艸",
-        "國","囗","他","人","江","水","板","木","快","心",
-        "好","女","煮","火","天","大","早","日","會","曰",
-        "有","月","爸","父","步","止","爭","爪","飯","食",])
+    const initialCorrectPair = 16;
+    const oriWords = ["打","手","吃","口","英","艸",
+    "國","囗","他","人","江","水","板","木","快","心",
+    "好","女","煮","火","天","大","早","日","會","曰",
+    "有","月","爸","父","步","止","爭","爪","飯","食",];
+    const [words, setWords] = useState(Array(36).fill("?"));
+    const [answers, setAnswers] = useState([]);
     const [dict,setDict] = useState({});
     const [selectedList, setSelectedList] = useState([]);
     const [correctList, setCorrectList] = useState([]);
@@ -17,17 +20,25 @@ function Main(){
     const [correctPair, setCorrectPair] = useState(initialCorrectPair);
     const [timer, setTimer] = useState(0);
     const [record, setRecord] = useState([]);
-    const [rankClick, setRankClick] = useState(false);
-    
+    const [rankClick, setRecordClick] = useState(false);
+    const [answerClick, setAnswerClick] = useState(false);
+
     useEffect(()=>{
         const makeDict = () =>{
             // const d = {};
-            for(let i =0; i < words.length/2; i++){
+            const aL = []
+            for(let i =0; i < oriWords.length/2; i++){
+                let aEle = [];
                 for(let j =0; j<2; j++){
-                    dict[words[2*i+j]] = i;
+                    dict[oriWords[2*i+j]] = i;
+                    aEle.push(oriWords[2*i+j]);
+                    if (j === 1){
+                        aL.push(aEle);
+                    }
                 }
             }
             setDict(dict);
+            setAnswers(aL);
         }
         makeDict();
     },[])
@@ -45,12 +56,13 @@ function Main(){
     },[timer,isStart])
     
     const shuffle = () =>{
-        const m = words.sort(()=>Math.random()-0.5);
+        const m = oriWords.sort(()=>Math.random()-0.5);
         setWords([...m]);
         setIsStart(true);
         setSelectedList([]);
         setCorrectList([]);
-        setRankClick(false);
+        setRecordClick(false);
+        setAnswerClick(false);
     }
 
     const selectWordChecking = (key) =>{
@@ -80,7 +92,7 @@ function Main(){
     const add2Record = (r) =>{
         r = Math.round(r*10)/10;
         let rl = record;
-        if(rl.length == 10){
+        if(rl.length === 10){
             rl.shift();
         } 
         rl.push(r)
@@ -98,6 +110,16 @@ function Main(){
         }
     }
 
+    const buttonClick = (str) =>{
+        if (str === "record"){
+            setRecordClick(true);
+            setAnswerClick(false);
+        } else if (str === "answer"){
+            setRecordClick(false);
+            setAnswerClick(true);
+        }
+    }
+
     return(
         <Div w="100vw" h="100vh" align="center" justify="space-around" d="flex" flexDir="column">
             <Div w="60vw" h="80vh" p="10px" bg="#FFFFFF" d="flex" rounded="xl" border="5px solid" 
@@ -108,7 +130,9 @@ function Main(){
                         　<RankCard w="80%" h="15%" time={r} key={key} rank={key+1} />
                     )}
                     </Div>
-                :
+                : answerClick ? 
+                answers.map((a,key)=>
+                <AnserCard w="30%" h="15%" word={a} key={key} />) :
                 words.map((w,key)=>
                 <Word w="15%" h="15%" word={w} key={key} 
                 isSelected={selectedList.includes(key)} 
@@ -126,12 +150,18 @@ function Main(){
                 onClick={shuffle}>
                     <Text textSize="5vh">Start!!</Text>
                 </Div>
-                {isEnd && 
+                {isEnd && <> 
                 <Div w="20%" h="100%" hoverBg="lightgray" cursor="pointer" textSize="32px" border="3px solid" 
                 borderColor="black" rounded="xl" flexWrap="wrap" d="flex" justify="center"
-                onClick={()=>{setRankClick(true);console.log(record)}}>
+                onClick={()=>{buttonClick("record");}}>
                     <Text textSize="5vh">Record</Text>
-                </Div>}
+                </Div>
+                <Div w="20%" h="100%" hoverBg="lightgray" cursor="pointer" textSize="32px" border="3px solid" 
+                borderColor="black" rounded="xl" flexWrap="wrap" d="flex" justify="center"
+                onClick={()=>{buttonClick("answer");}}>
+                    <Text textSize="5vh">Answer</Text>
+                </Div>
+                </>}
                 </>)}
             </Div>
         </Div>
