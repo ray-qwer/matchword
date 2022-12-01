@@ -1,0 +1,27 @@
+{
+  "name": "matchword_server",
+  "version": "1.0.0",
+  "description": "matchword server for Peggy Xue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./index.js",
+    "start": "node ./index.js"
+  },
+  "author": "Ray Hsu",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv-defaults": "^5.0.2",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.12.1",
+    "@babel/core": "^7.12.3",
+    "@babel/node": "^7.12.6",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/plugin-transform-arrow-functions": "^7.8.3",
+    "nodemon": "^2.0.20"
+  }
+}
