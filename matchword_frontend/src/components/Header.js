@@ -3,15 +3,24 @@ import AppBar from '@mui/material/AppBar';
 import ToolBar from '@mui/material/Toolbar';
 import Box from '@mui/material/Box'
 import ThemeProvider  from "@mui/material/styles/ThemeProvider";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import ButtonGroup from "@mui/material/ButtonGroup";
 import { topBarTheme } from "../theme/theme";
 
-function Header(){
+function Header(props){
+    const sx = props.sx;
     return(
-        <Box sx={{width:"100vw",height:"10vh"}}>
+        <Box sx={sx}>
             <ThemeProvider theme={topBarTheme}>
-                <AppBar color="primary">
+                <AppBar color="primary" sx={sx}>
                     <ToolBar>
-                        <div>Hello</div>
+                        <Typography>Hello</Typography>
+                        <ButtonGroup>
+                            <Button></Button>
+                            <Button></Button>
+                            <Button></Button>
+                        </ButtonGroup>
                     </ToolBar>
                 </AppBar>
             </ThemeProvider>

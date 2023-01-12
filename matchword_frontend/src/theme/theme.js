@@ -9,4 +9,11 @@ const topBarTheme = createTheme({
     }
 })
 
-export {topBarTheme};
+const footerTheme = createTheme({
+    palette:{
+        primary:{
+            main:"#8080C0",
+        }
+    }
+})
+export {topBarTheme, footerTheme};

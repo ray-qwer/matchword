@@ -3,9 +3,10 @@ import logo from "../logo.svg";
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
-function Home(){
+function Home(props){
+    const sx = props.sx;
     return(
-        <Container sx={{bgcolor:"gray",padding:"100px"}}>
+        <Container sx={{flex:1}}>
             <Typography>Hello</Typography>
         </Container>
     )
