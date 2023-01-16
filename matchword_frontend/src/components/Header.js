@@ -9,6 +9,7 @@ import ButtonGroup from "@mui/material/ButtonGroup";
 import { topBarTheme } from "../theme/theme";
 import LogoutIcon from '@mui/icons-material/Logout';
 import Avatar from "@mui/material/Avatar";
+import { Link } from "react-router-dom"
 
 const buttonStyle = {color:"white",borderRadius:5,":hover":{backgroundColor:"#5A5AAD"},height:"100%"};
 function Header(props){
@@ -20,8 +21,8 @@ function Header(props){
                     <ToolBar>
                         <Box sx={{height:"100%",flexGrow:1,mr:0}}>
                             <Box sx={{marginX:"10px",height:"100%",minWidth:"600px"}}>
-                                <Button variant="Contained" sx={buttonStyle} >Home Page</Button>
-                                <Button variant="Contained" sx={buttonStyle} >My Questions</Button>
+                                <Button component={Link} to={'/'} variant="Contained" sx={buttonStyle} >Home Page</Button>
+                                <Button component={Link} to={'/problems'} variant="Contained" sx={buttonStyle} >My Questions</Button>
                                 <Button variant="Contained" sx={buttonStyle} >Question Set</Button>
                             </Box>
                         </Box>

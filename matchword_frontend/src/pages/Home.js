@@ -1,5 +1,4 @@
 import React from 'react';
-import logo from "../logo.svg";
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 
