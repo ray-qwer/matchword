@@ -15,12 +15,12 @@ const buttonStyle = {color:"white",borderRadius:5,":hover":{backgroundColor:"#5A
 function Header(props){
     const sx = props.sx;
     return(
-        <Box sx={[sx,{display:"flex"}]}>
+        <Box sx={[sx,{display:"flex",minHeight:"64px"}]}>
             <ThemeProvider theme={topBarTheme}>
                 <AppBar color="primary" sx={[sx]}>
                     <ToolBar>
                         <Box sx={{height:"100%",flexGrow:1,mr:0}}>
-                            <Box sx={{marginX:"10px",height:"100%",minWidth:"600px"}}>
+                            <Box sx={{marginX:"10px",height:"100%"}}>
                                 <Button component={Link} to={'/'} variant="Contained" sx={buttonStyle} >Home Page</Button>
                                 <Button component={Link} to={'/problems'} variant="Contained" sx={buttonStyle} >My Questions</Button>
                                 <Button variant="Contained" sx={buttonStyle} >Question Set</Button>
