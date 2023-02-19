@@ -5,10 +5,10 @@ import Grid from '@mui/material/Unstable_Grid2';
 function ProblemSets(props){
     
     return(
-        <Container sx={{paddingY:"24px",flexGrow:1, }}>
-            <Grid container spacing={4} columns={4} justifyContent="space-between">
+        <Container sx={{paddingY:"24px",flexGrow:1}}>
+            <Grid container spacing={4} columns={4} >
                 {
-                    [...Array(15).keys()].map((num)=>(
+                    [...Array(2).keys()].map((num)=>(
                         <ProblemCard key={num} k={num}/>
                     ))
                 }
