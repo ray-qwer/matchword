@@ -16,23 +16,23 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 import Tooltip from '@mui/material/Tooltip';
 
-const ITEM_HEIGHT = 48;
+
 function ProblemCard(props){
     // props.children
-    const options = ["delete","edit","share"];
-    const [anchorEl, setAnchorEl] = useState(null);
-    const [chosen, setChosen] = useState('');
-    const handleClick = (event) =>{
-        setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () =>{
-        setAnchorEl(null);
-    };
-    const optionHandleClose = (option) =>{
-        handleClose();
-        setChosen(option);
-    }
-    const open = Boolean(anchorEl);
+    // const options = ["delete","edit","share"];
+    // const [anchorEl, setAnchorEl] = useState(null);
+    // const [chosen, setChosen] = useState('');
+    // const handleClick = (event) =>{
+    //     setAnchorEl(event.currentTarget);
+    // };
+    // const handleClose = () =>{
+    //     setAnchorEl(null);
+    // };
+    // const optionHandleClose = (option) =>{
+    //     handleClose();
+    //     setChosen(option);
+    // }
+    // const open = Boolean(anchorEl);
 
     return (
         <Card variant="outlined" sx={{minWidth:"250px", height:"160px", borderRadius:5,display:"flex",flexDirection:"column",justifyContent:"space-between",marginX:"20px",marginY:"20px"}}>
@@ -71,7 +71,6 @@ function ProblemCard(props){
                 </Box>
                 
             </CardActions>
-                    {/* <Button onClick={()=>{console.log(props)}}> Props </Button> */}
             
         </Card>
     )
