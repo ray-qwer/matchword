@@ -4,6 +4,9 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
+import MenuItem from "@mui/material/MenuItem";
+import Select, { SelectChangeEvent } from "@mui/material/Select"
+
 function CreateProb(props){
 
     return(
@@ -40,7 +43,11 @@ function TextArea(props){
                 </Box>) 
                 : 
                 (<Box sx={{display:"inherit",flexGrow: 2}}>
-                    <TextField sx={{width:"100%"}}></TextField>
+                    <Select
+                        
+                    >
+                        
+                    </Select>
                 </Box>)
             }
         </Box>
